@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  /* background: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+  background-size: cover; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 40%;
+}
+
+.content h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 65px;
+  font-variant: small-caps;
+  text-decoration: underline dashed;
+}
+.content .form {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.content .form input {
+  width: 90%;
+  border: 2px solid rgb(124, 109, 109);
+  border-radius: 15px;
+  background-color: #414f4a;
+  color: aliceblue;
+  margin: 15px;
+  padding: 25px 9px;
+}
+.content .form input::placeholder {
+  color: aliceblue;
+  font-size: 18px;
+}
+.content input:focus {
+  outline: none;
+  border: 2px dashed #86a89c;
+  background-color: #414f4a;
+  box-shadow: 0 0 5px #afb6b3;
+}
+
+.content button {
+  width: 50%;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(124, 109, 109);
+  background-color: #536354;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+.content button:hover {
+  background-color: #414f4a;
+  border: 1px dashed #86a89c;
+}
+
+.quizContainer {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* -------------------- Header -------------------- */
+.quizHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.quizHeader p {
+  font-size: 25px;
+  font-family: "Times New Roman", Times, serif;
+  padding: 0 10px;
+}
+
+/* -------------------- Question -------------------- */
+.quizQuestion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quizQuestion .quizTitle {
+  text-align: center;
+  font-size: 45px;
+  border: 2px dashed rgb(117 109 109);
+  border-radius: 10px;
+  margin: 15px 25px;
+}
+
+.quizQuestion #question {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  border-bottom: 2px dashed rgb(117 109 109);
+  margin: 20px 0;
+}
+
+.quizQuestion ul {
+  list-style-position: inside;
+  padding: 10px 0;
+}
+
+.quizQuestion ul li {
+  background-color: rgba(173, 216, 230, 0.4);
+  padding: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+
+.quizQuestion ul li:hover {
+  background-color: rgba(129, 170, 184, 0.7);
+}
+
+/* -------------------- Footer -------------------- */
+.quizFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quizFooter button {
+  width: 50%;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(124, 109, 109);
+  background-color: #536354;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #414f4a;
+  border: 1px dashed #86a89c;
+}
+
+.report{
+  width: 40%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.report h1{
+  font-size: 65px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+}
+
+.report h3{
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.report button{
+ width: 50%;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(124, 109, 109);
+  background-color: #536354;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.report button:hover {
+  background-color: #414f4a;
+  border: 1px dashed #86a89c;
+}
