@@ -41,19 +41,19 @@ tsParticles.load("tsparticles", {
         enable: true,
         mode: "repulse"
       },
-      // onClick: {
-      //   enable: true,
-      //   mode: "push"
-      // },
+      onClick: {
+        enable: true,
+        mode: "push"
+      },
       resize: true
     },
     modes: {
       repulse: {
         distance: 100
       },
-      // push: {
-      //   quantity: 4
-      // }
+      push: {
+        quantity: 4
+      }
     }
   },
   detectRetina: true
