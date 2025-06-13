@@ -258,7 +258,7 @@ function userDetails() {
 
 // Timer variables
 let timerElement = document.getElementById("timer");
-let totalTime = 300; // 5 minutes in seconds
+let totalTime = 180; // 5 minutes in seconds
 let interval;
 
 
