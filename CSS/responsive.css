@@ -8,9 +8,6 @@
     height: 80vh;
     gap: 20px;
   }
-  .report h1 {
-    font-size: 45px;
-  }
 }
 
 @media (max-width: 970px) {
@@ -22,9 +19,7 @@
     width: 90%;
   }
 
-  .report h1 {
-    font-size: 45px;
-  }
+  
 }
 
 @media (max-width: 576px) {
@@ -81,10 +76,6 @@
   width: 100%;
 }
 
-.report h1{
-  font-size: 45px;
-  font-weight: 700;
-}
 
 .report h3{
   font-size: 25px;
