@@ -2,31 +2,32 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Title and Favicon -->
-  <title>Quiz App</title>
-  <link rel="shortcut icon" href="./favicon.webp" type="image/x-icon">
+    <!-- Title and Favicon -->
+    <title>Quiz App</title>
+    <link rel="shortcut icon" href="./favicon.webp" type="image/x-icon">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../CSS/global.css">
-  <link rel="stylesheet" href="../CSS/style.css">
-  <link rel="stylesheet" href="../CSS/responsive.css">
-  <link rel="stylesheet" href="../particle JS/particale.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../particle JS/particale.css">
 
-  <!-- Open Graph Meta Tags for WhatsApp/Facebook -->
-  <meta property="og:title" content="Quiz App by Umair Ahmed" />
-  <meta property="og:description" content="Test your web development skills with this interactive quiz made by Umair Ahmed." />
-  <meta property="og:image" content="https://quiz-app-hazel-zeta-56.vercel.app/favicon.webp" />
-  <meta property="og:url" content="https://quiz-app-hazel-zeta-56.vercel.app/" />
-  <meta property="og:type" content="website" />
+    <!-- Open Graph Meta Tags for WhatsApp/Facebook -->
+    <meta property="og:title" content="Quiz App by Umair Ahmed" />
+    <meta property="og:description"
+        content="Test your web development skills with this interactive quiz made by Umair Ahmed." />
+    <meta property="og:image" content="https://quiz-app-hazel-zeta-56.vercel.app/favicon.webp" />
+    <meta property="og:url" content="https://quiz-app-hazel-zeta-56.vercel.app/" />
+    <meta property="og:type" content="website" />
 
-  <!-- tsParticles CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 
-<body onload="uiRender() ; userDetails(); getUser() ">
+<body onload="callingFunctions()">
 
     <!-- tsParticles container -->
     <div id="tsparticles"></div>
@@ -45,7 +46,7 @@
             </div>
 
             <div>
-                <p>
+                <p id="timer">
 
                     Time:5:00
                 </p>

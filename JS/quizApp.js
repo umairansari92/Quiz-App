@@ -122,6 +122,7 @@ let correctAnsCount = 0
 let wrongAnsCount = 0
 
 
+// Renders the current quiz question and its options on the UI
 function uiRender() {
     const question = document.getElementById("question");
 
@@ -142,57 +143,67 @@ function uiRender() {
 
 }
 
+
+// Moves to the next question or ends the quiz if all questions are done.
 function nextQuestion() {
     indexNumber++
     if (indexNumber < quizQuestions.length) {
         uiRender()
         count.innerHTML = `${indexNumber + 1} / ${quizQuestions.length} `
     } else {
-        const percentage = (correctAnsCount / quizQuestions.length) * 100
 
-
-        let rank;
-        let message;
-        if (percentage >= 90) {
-            rank = "A1"
-            message = "You rocked!";
-        } else if (percentage >= 80) {
-            rank = "A+"
-            message = "Excellent work!";
-        } else if (percentage >= 70) {
-            rank = "A"
-            message = "Good job!";
-        } else if (percentage >= 60) {
-            rank = "B"
-            message="Need improvement!"
-        } else if (percentage >= 50) {
-            rank = "C"
-            message="Need workhard!"
-        }else {
-            rank = "Fail"
-            message = "Try again!";
-            
-        }
-
-        console.log(rank)
-
-        const reportObj = {
-            totalQues: quizQuestions.length,
-            correctAnsCount,
-            wrongAnsCount,
-            percentage,
-            rank,
-            message,
-        }
-        console.log("reportObj", reportObj)
-        localStorage.setItem("report", JSON.stringify(reportObj))
         window.location.replace("../Pages/reportCard.html")
+        generateReport()
+
 
     }
 
 
 }
 
+// Generates the quiz report and stores it in localStorage
+function generateReport() {
+    const percentage = (correctAnsCount / quizQuestions.length) * 100
+
+
+    let rank;
+    let message;
+    if (percentage >= 90) {
+        rank = "A1"
+        message = "You rocked!";
+    } else if (percentage >= 80) {
+        rank = "A+"
+        message = "Excellent work!";
+    } else if (percentage >= 70) {
+        rank = "A"
+        message = "Good job!";
+    } else if (percentage >= 60) {
+        rank = "B"
+        message = "Need improvement!"
+    } else if (percentage >= 50) {
+        rank = "C"
+        message = "Need workhard!"
+    } else {
+        rank = "Fail"
+        message = "Try again!";
+
+    }
+
+    console.log(rank)
+
+    const reportObj = {
+        totalQues: quizQuestions.length,
+        correctAnsCount,
+        wrongAnsCount,
+        percentage,
+        rank,
+        message,
+    }
+    localStorage.setItem("report", JSON.stringify(reportObj))
+}
+
+
+// Checks the selected answer, updates score, and highlights correct/wrong answers
 function checkAns(ele) {
     console.log(ele.innerHTML)
     const allLi = document.getElementById("options").children
@@ -210,17 +221,21 @@ function checkAns(ele) {
         wrongAnsCount++
         ele.style.background = "red"
 
+
+        // Loop through all <li> options to find and highlight the correct answer
+
         for (var i = 0; i < allLi.length; i++) {
-            // console.log(allLi[i].innerHTML)
             if (allLi[i].innerHTML === correctAns) {
-                allLi[i].style.background = "green"
-                break
+                allLi[i].style.background = "green"   // If this option is the correct answer, color it green
+                break // Stop looping once the correct answer is found
             }
 
         }
 
     }
 
+    
+// Disable clicking on any option to prevent further answers
     for (var i = 0; i < allLi.length; i++) {
         allLi[i].style.pointerEvents = "none"
 
@@ -228,10 +243,63 @@ function checkAns(ele) {
     nextBtn.disabled = false
 }
 
+
+
+// Displays the user's name and email on the quiz screen
 function userDetails() {
     const user = JSON.parse(localStorage.getItem("user"))
     const userName = document.querySelector("#userName")
     const userEmail = document.querySelector("#userEmail")
     userName.innerHTML = user.name
     userEmail.innerHTML = user.email
+}
+
+
+
+// Timer variables
+let timerElement = document.getElementById("timer");
+let totalTime = 300; // 5 minutes in seconds
+let interval;
+
+
+
+// Starts the timer and updates display every second
+function setTimer() {
+    updateTimerDisplay();
+    interval = setInterval(timer, 1000)
+}
+
+
+// This function runs on every tick of the timer
+function timer() {
+    totalTime--
+    updateTimerDisplay()
+    if (totalTime <= 0) {
+        clearInterval(interval)
+        alert("Time's up!")
+        generateReport()
+        window.location.replace("../Pages/reportCard.html")
+    }
+}
+
+
+
+// Updates the timer display on the screen
+function updateTimerDisplay() {
+    let minutes = Math.floor(totalTime / 60);  // Calculate remaining minutes
+    let seconds = totalTime % 60;
+    timerElement.innerHTML = `Time Left: ${minutes} m ${seconds} s`; // Calculate remaining seconds
+}
+
+
+// Calls all necessary functions when quiz page loads:
+// - uiRender(): Displays the first question and options
+// - setTimer(): Starts the countdown timer
+// - userDetails(): Shows user's name and email in the quiz header
+// - getUser(): Pre-fills login form fields if user data exists in localStorage
+function callingFunctions() {
+    uiRender()
+    setTimer()
+    userDetails()
+    getUser()
 }
