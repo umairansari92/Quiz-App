@@ -8,6 +8,9 @@
     height: 80vh;
     gap: 20px;
   }
+  .report h1 {
+    font-size: 50px;
+  }
 }
 
 @media (max-width: 970px) {
