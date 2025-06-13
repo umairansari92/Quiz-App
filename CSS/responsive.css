@@ -23,14 +23,13 @@
   }
 
   .report h1 {
-    font-size: 50px;
+    font-size: 45px;
   }
 }
 
 @media (max-width: 576px) {
   .content h1 {
     font-weight: 500;
-    font-size: 45px;
   }
 
   .quizContainer {
