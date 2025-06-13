@@ -44,7 +44,7 @@ body {
   border-radius: 15px;
   background-color: #414f4a;
   color: aliceblue;
-  margin: 15px;
+  margin: 15px auto;
   padding: 25px 9px;
 }
 .content .form input::placeholder {
